@@ -6,1069 +6,790 @@
 <title>挪亞設計｜參展型錄印刷專業團隊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --void: #0a0a0c;
-  --ink: #131316;
-  --shadow: #1d1d22;
-  --line: #2a2a30;
-  --bone: #f5f1e8;
-  --gold: #c9a876;
-  --gold-bright: #e8c688;
-  --copper: #b87333;
-  --muted: #6b6b75;
-  --soft: #9a9aa3;
+  --ink: #1a1612;
+  --paper: #f4ede1;
+  --paper-dark: #e8dec9;
+  --accent: #c8492c;
+  --accent-soft: #d97757;
+  --muted: #8b7d6a;
+  --line: #2a241c;
+  --gold: #b08850;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--void);
-  color: var(--bone);
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  line-height: 1.75;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 400;
+  line-height: 1.7;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* Film grain overlay */
+/* Texture overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 200;
-  opacity: 0.08;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  z-index: 1;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,22,18,0.04) 1px, transparent 0);
+  background-size: 3px 3px;
+  opacity: 0.6;
 }
 
-/* Vignette */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 199;
-  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
-}
-
-.serif { font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; }
-.serif-tc { font-family: 'Noto Serif TC', serif; }
+.serif-display { font-family: 'Fraunces', 'Noto Serif TC', serif; }
+.sans { font-family: 'Noto Sans TC', sans-serif; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 
-/* ========== NAVBAR ========== */
-.navbar {
+/* ========== TOP BAR ========== */
+.topbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 24px 48px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+  padding: 14px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(10,10,12,0.9), rgba(10,10,12,0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all .4s;
-}
-.navbar.scrolled {
-  background: rgba(10,10,12,0.92);
-  border-bottom: 1px solid var(--line);
-  padding: 16px 48px;
-}
-
-.brand {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--bone);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.brand em {
-  font-style: italic;
-  color: var(--gold);
-  font-weight: 400;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
 }
-.nav-links a {
-  color: var(--soft);
+.topbar .left { display: flex; gap: 32px; align-items: center; }
+.topbar .right { display: flex; gap: 24px; align-items: center; }
+.topbar a {
+  color: var(--ink);
   text-decoration: none;
-  transition: color .3s;
-  position: relative;
+  transition: color .2s;
 }
-.nav-links a:not(.nav-cta)::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width .3s;
-}
-.nav-links a:not(.nav-cta):hover { color: var(--bone); }
-.nav-links a:not(.nav-cta):hover::after { width: 100%; }
-
-.nav-cta {
-  border: 1px solid var(--gold);
-  color: var(--gold) !important;
-  padding: 10px 20px;
+.topbar a:hover { color: var(--accent); }
+.topbar .issue { color: var(--muted); }
+.topbar .cta-mini {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 16px;
   border-radius: 100px;
-  transition: all .3s;
 }
-.nav-cta:hover {
-  background: var(--gold);
-  color: var(--void) !important;
-}
+.topbar .cta-mini:hover { background: var(--accent); color: var(--paper); }
 
 /* ========== HERO ========== */
 .hero {
+  padding: 120px 32px 60px;
+  position: relative;
+  border-bottom: 1px solid var(--ink);
   min-height: 100vh;
-  position: relative;
-  padding: 0 48px;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
-/* Hero background atmospheric */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(201,168,118,0.12), transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(184,115,51,0.08), transparent 50%),
-    radial-gradient(ellipse at 50% 100%, rgba(232,198,136,0.06), transparent 60%);
-}
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,118,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,118,0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
   width: 100%;
+  align-items: end;
 }
 
-.hero-eyebrow {
+.hero-meta {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  gap: 24px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 40px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
+.hero-meta span::before {
+  content: '◆';
+  margin-right: 8px;
+  color: var(--accent);
 }
+.hero-meta span:first-child::before { display: none; }
 
 .hero-title {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
   font-weight: 300;
-  font-size: clamp(56px, 9vw, 144px);
+  font-size: clamp(48px, 7vw, 104px);
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: var(--bone);
-  margin-bottom: 40px;
+  color: var(--ink);
+  margin-bottom: 0;
 }
 .hero-title em {
   font-style: italic;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 400;
-}
-.hero-title .line2 {
-  display: block;
-  text-align: right;
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--accent);
+  font-variation-settings: "opsz" 120;
 }
 .hero-title .stroke {
-  -webkit-text-stroke: 1px var(--gold);
+  -webkit-text-stroke: 1px var(--ink);
   color: transparent;
-}
-
-.hero-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-top: 60px;
+  font-weight: 500;
 }
 
 .hero-deck {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 17px;
-  line-height: 1.9;
-  color: var(--soft);
-  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
   max-width: 480px;
+  margin-bottom: 32px;
 }
-.hero-deck strong {
-  color: var(--bone);
-  font-weight: 400;
+.hero-deck::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 8px 8px 0 0;
+  color: var(--accent);
 }
 
-.hero-cta-stack {
+.hero-cta-row {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.btn-gold {
+.btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-  color: var(--void);
-  padding: 20px 36px;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 18px 32px;
   text-decoration: none;
   border-radius: 100px;
   font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 15px;
   letter-spacing: 0.05em;
-  transition: all .4s;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(201,168,118,0.25);
+  transition: all .3s;
+  border: 1px solid var(--ink);
 }
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: left .8s;
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
-.btn-gold:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(201,168,118,0.4);
+.btn-primary svg {
+  width: 16px; height: 16px;
+  transition: transform .3s;
 }
-.btn-gold:hover::before { left: 100%; }
-.btn-gold svg { width: 18px; height: 18px; }
+.btn-primary:hover svg { transform: translateX(4px); }
 
-.btn-line-ghost {
+.btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--soft);
-  text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-  transition: all .3s;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
 }
-.btn-line-ghost:hover {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
+.btn-ghost:hover { color: var(--accent); }
 
-/* Scroll indicator */
-.scroll-hint {
+/* Hero side image area */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--paper-dark);
+  border: 1px solid var(--ink);
+  overflow: hidden;
+}
+.hero-visual .label {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 16px; left: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 4px 10px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  z-index: 5;
+  z-index: 2;
 }
-.scroll-hint::after {
-  content: '';
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(180deg, var(--gold), transparent);
-  animation: scrollLine 2s ease-in-out infinite;
-}
-@keyframes scrollLine {
-  0%, 100% { transform: scaleY(0.4); transform-origin: top; }
-  50% { transform: scaleY(1); }
+.hero-visual .caption {
+  position: absolute;
+  bottom: 16px; left: 16px; right: 16px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 12px 16px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  z-index: 2;
 }
 
-/* ========== SECTIONS BASE ========== */
-section { padding: 140px 48px; position: relative; }
+/* Hero "catalog" illustration */
+.catalog-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
-.container { max-width: 1320px; margin: 0 auto; }
+/* Marquee ribbon */
+.marquee {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--ink);
+}
+.marquee-track {
+  display: inline-block;
+  animation: scroll 35s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+}
+.marquee-track span {
+  margin: 0 32px;
+}
+.marquee-track .star { color: var(--accent); }
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-.section-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+/* ========== SECTION : INTRO ========== */
+section { padding: 100px 32px; border-bottom: 1px solid var(--ink); position: relative; }
+
+.section-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 32px;
-}
-.section-eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: 100px;
 }
 
 .section-title {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-weight: 300;
-  font-size: clamp(40px, 6vw, 88px);
-  line-height: 1.02;
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--bone);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .section-title em {
   font-style: italic;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 400;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .section-lede {
-  font-family: 'Noto Serif TC', serif;
   font-size: 17px;
-  line-height: 1.9;
-  color: var(--soft);
-  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink);
   max-width: 620px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
-/* ========== INTRO ========== */
-.intro-grid {
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* About */
+.about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 100px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
   align-items: start;
 }
-.intro-headline {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+.about-headline {
+  font-family: 'Fraunces', serif;
   font-weight: 300;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: 1.05;
+  font-size: clamp(40px, 4.5vw, 68px);
+  line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--bone);
-  position: sticky;
-  top: 100px;
 }
-.intro-headline em {
-  font-style: italic;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 400;
-}
-.intro-body p {
-  font-family: 'Noto Serif TC', serif;
+.about-headline em { font-style: italic; color: var(--accent); font-weight: 500; }
+
+.about-body p {
   font-size: 17px;
-  line-height: 1.95;
-  color: var(--soft);
-  margin-bottom: 28px;
-  font-weight: 300;
+  line-height: 1.85;
+  margin-bottom: 20px;
 }
-.intro-body p strong {
-  color: var(--bone);
-  font-weight: 400;
-}
-.intro-body p:first-child::first-letter {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
-  font-weight: 400;
+.about-body p:first-child::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 500;
   float: left;
-  line-height: 0.85;
-  margin: 10px 14px 0 0;
-  color: var(--gold);
-  font-style: italic;
-}
-
-/* ========== PROBLEMS ========== */
-.problems-section {
-  background: linear-gradient(180deg, var(--void), var(--ink));
-}
-
-.problems-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 40px;
-}
-.problem-row {
-  display: grid;
-  grid-template-columns: 140px 1fr 1.4fr;
-  gap: 60px;
-  padding: 60px 0;
-  border-top: 1px solid var(--line);
-  align-items: start;
-  transition: all .4s;
-}
-.problem-row:last-child { border-bottom: 1px solid var(--line); }
-.problem-row:hover { background: rgba(201,168,118,0.02); padding-left: 12px; padding-right: 12px; }
-
-.prob-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 96px;
-  font-weight: 300;
   line-height: 0.9;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  margin: 6px 10px 0 0;
+  color: var(--ink);
 }
-.prob-title {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 30px;
-  font-weight: 400;
+
+/* ========== PROBLEM CARDS ========== */
+.problems-section { background: var(--paper-dark); }
+
+.problem-list { margin-top: 40px; }
+.problem-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 1.4fr;
+  gap: 40px;
+  padding: 50px 0;
+  border-top: 1px solid var(--ink);
+  align-items: start;
+}
+.problem-item:last-child { border-bottom: 1px solid var(--ink); }
+
+.problem-number {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: var(--accent);
+}
+.problem-heading {
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-size: 28px;
+  font-weight: 500;
   line-height: 1.3;
-  color: var(--bone);
   letter-spacing: -0.01em;
 }
-.prob-text {
-  font-family: 'Noto Serif TC', serif;
+.problem-text {
   font-size: 16px;
-  line-height: 1.9;
-  color: var(--soft);
-  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink);
 }
-.prob-text strong {
-  color: var(--gold-bright);
-  font-weight: 500;
+.problem-text strong {
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 60%, rgba(200,73,44,0.25) 60%);
+  padding: 0 2px;
 }
 
-/* ========== SOLUTIONS ========== */
-.solutions-grid {
+/* ========== SOLUTIONS GRID ========== */
+.solution-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 0;
+  border: 1px solid var(--ink);
   margin-top: 40px;
 }
 .solution-card {
-  padding: 48px 40px;
-  border: 1px solid var(--line);
-  background: linear-gradient(135deg, rgba(29,29,34,0.6), rgba(19,19,22,0.4));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  padding: 50px 40px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
   position: relative;
-  overflow: hidden;
-  transition: all .5s;
+  background: var(--paper);
+  transition: background .3s;
 }
-.solution-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity .5s;
-}
-.solution-card:hover {
-  border-color: rgba(201,168,118,0.3);
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, rgba(29,29,34,0.8), rgba(19,19,22,0.6));
-}
-.solution-card:hover::before { opacity: 1; }
+.solution-card:nth-child(2n) { border-right: none; }
+.solution-card:nth-child(n+3) { border-bottom: none; }
+.solution-card:hover { background: var(--paper-dark); }
 
-.solution-mark {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
+.solution-icon {
+  width: 56px; height: 56px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 24px;
-  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
 }
 .solution-card h3 {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 28px;
-  font-weight: 400;
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-size: 26px;
+  font-weight: 500;
   line-height: 1.3;
-  color: var(--bone);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
 .solution-card p {
-  font-family: 'Noto Serif TC', serif;
   font-size: 15px;
-  line-height: 1.9;
-  color: var(--soft);
-  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink);
 }
 .solution-card p strong {
-  color: var(--gold-bright);
-  font-weight: 500;
+  background: linear-gradient(180deg, transparent 60%, rgba(200,73,44,0.25) 60%);
+  padding: 0 2px;
+  font-weight: 700;
 }
 
 /* ========== PROCESS ========== */
-.process-section {
-  background: var(--ink);
-  position: relative;
-  overflow: hidden;
-}
-.process-section::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(201,168,118,0.08), transparent 60%);
-  pointer-events: none;
-}
+.process-section { background: var(--ink); color: var(--paper); border-bottom: 1px solid var(--ink); }
+.process-section .section-tag { color: var(--accent-soft); border-color: var(--accent-soft); }
+.process-section .section-title { color: var(--paper); }
+.process-section .section-title em { color: var(--accent-soft); }
+.process-section .section-lede { color: var(--paper-dark); }
 
-.process-steps {
-  margin-top: 40px;
-  position: relative;
-}
+.process-list { margin-top: 40px; }
 .process-step {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 80px;
-  padding: 80px 0;
-  border-top: 1px solid var(--line);
+  grid-template-columns: 60px 280px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-top: 1px solid #3a342a;
   align-items: start;
-  position: relative;
 }
-.process-step:last-child { border-bottom: 1px solid var(--line); }
+.process-step:last-child { border-bottom: 1px solid #3a342a; }
 
-.step-marker {
-  position: sticky;
-  top: 120px;
-}
-.step-num {
+.process-num {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color: var(--gold);
-  margin-bottom: 16px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--accent-soft);
 }
-.step-big-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 120px;
-  font-weight: 300;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.step-body h3 {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 44px;
+.process-headline {
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-size: 30px;
   font-weight: 400;
-  line-height: 1.15;
-  color: var(--bone);
-  margin-bottom: 28px;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--paper);
 }
-.step-body h3 em {
-  font-style: italic;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.step-body p {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 16px;
-  line-height: 1.95;
-  color: var(--soft);
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-.step-list {
+.process-headline em { font-style: italic; color: var(--accent-soft); }
+.process-content { color: var(--paper-dark); }
+.process-content p { font-size: 15px; line-height: 1.85; margin-bottom: 12px; }
+.process-content ul {
   list-style: none;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  margin-top: 12px;
 }
-.step-list li {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--soft);
-  padding-left: 28px;
+.process-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding-left: 20px;
   position: relative;
-  font-weight: 300;
+  color: var(--paper-dark);
 }
-.step-list li::before {
-  content: '';
+.process-content li::before {
+  content: '→';
   position: absolute;
-  left: 0; top: 12px;
-  width: 16px; height: 1px;
-  background: var(--gold);
+  left: 0;
+  color: var(--accent-soft);
 }
 
 /* ========== CASES ========== */
-.cases-section { background: var(--void); }
-
 .cases-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 0;
   margin-top: 40px;
+  border: 1px solid var(--ink);
 }
 .case-card {
-  position: relative;
-  text-decoration: none;
-  color: var(--bone);
-  border: 1px solid var(--line);
-  background: var(--ink);
   padding: 0;
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  transition: all .5s;
+  border-right: 1px solid var(--ink);
+  position: relative;
+  background: var(--paper);
+  text-decoration: none;
+  color: var(--ink);
+  transition: all .3s;
   display: flex;
   flex-direction: column;
-}
-.case-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-6px);
-}
-.case-visual {
-  flex: 1;
-  position: relative;
+  min-height: 360px;
   overflow: hidden;
+}
+.case-card:last-child { border-right: none; }
+.case-card:hover { background: var(--ink); color: var(--paper); }
+.case-card:hover .case-arrow { color: var(--accent-soft); transform: translate(4px, -4px); }
+.case-card:hover .case-meta { color: var(--paper-dark); border-color: #3a342a; }
+.case-card:hover .case-image { transform: scale(1.06); }
+
+.case-image {
+  width: 100%;
+  aspect-ratio: 4/3;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform .7s ease;
+  transition: transform .6s ease;
 }
-.case-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,12,0.1) 0%, rgba(10,10,12,0.05) 50%, rgba(10,10,12,0.5) 100%);
-  z-index: 1;
-  transition: background .5s;
-}
-.case-card:hover .case-visual {
-  transform: scale(1.06);
-}
-.case-card:hover .case-visual::before {
-  background: linear-gradient(180deg, rgba(201,168,118,0.1) 0%, rgba(10,10,12,0.05) 50%, rgba(10,10,12,0.4) 100%);
+.case-text-area {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  position: relative;
 }
 
-.case-info {
-  padding: 28px 28px;
-  border-top: 1px solid var(--line);
-  background: var(--ink);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-}
-.case-info-left { flex: 1; }
-.case-tag {
+.case-meta {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  margin-bottom: 8px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  transition: color .3s;
 }
 .case-name {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 22px;
-  font-weight: 400;
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-size: 26px;
+  font-weight: 500;
   line-height: 1.25;
-  color: var(--bone);
+  margin-top: auto;
 }
 .case-arrow {
-  font-size: 28px;
-  color: var(--gold);
-  transition: transform .3s;
-}
-.case-card:hover .case-arrow { transform: translate(4px, -4px); }
-
-.cases-cta {
-  text-align: center;
-  margin-top: 80px;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 22px;
+  transition: all .3s;
 }
 
-/* ========== ADVANTAGES ========== */
-.advantages-section {
-  background: linear-gradient(180deg, var(--ink), var(--void));
-}
-
-.adv-grid {
+/* ========== ADVANTAGES (3 cols) ========== */
+.advantages-section { background: var(--paper-dark); }
+.advantages-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 40px;
   margin-top: 40px;
 }
-.adv-card {
-  padding: 56px 40px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(29,29,34,0.4), rgba(19,19,22,0.2));
+.advantage-card {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 40px 32px;
   position: relative;
-  overflow: hidden;
-  transition: all .5s;
 }
-.adv-card:hover {
-  border-color: rgba(201,168,118,0.4);
-  transform: translateY(-4px);
-}
-.adv-roman {
-  font-family: 'Cormorant Garamond', serif;
+.advantage-num {
+  font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 64px;
+  font-size: 80px;
   font-weight: 300;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 24px;
+  line-height: 0.9;
+  color: var(--accent);
+  margin-bottom: 16px;
 }
-.adv-card h3 {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--bone);
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
-.adv-card p {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--soft);
-  font-weight: 300;
-}
-.adv-card p strong {
-  color: var(--gold-bright);
+.advantage-card h3 {
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
+  font-size: 24px;
   font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.advantage-card p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.advantage-card p strong {
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 60%, rgba(200,73,44,0.25) 60%);
+  padding: 0 2px;
 }
 
 /* ========== FAQ ========== */
-.faq-section { background: var(--void); }
-
-.faq-list {
-  max-width: 920px;
-  margin: 40px auto 0;
-}
+.faq-list { margin-top: 40px; max-width: 920px; margin-left: auto; margin-right: auto; }
 .faq-item {
-  border-top: 1px solid var(--line);
-  padding: 28px 0;
+  border-top: 1px solid var(--ink);
+  padding: 24px 0;
   cursor: pointer;
-  transition: padding .3s;
 }
-.faq-item:last-child { border-bottom: 1px solid var(--line); }
-.faq-item:hover .faq-q-text { color: var(--gold); }
-
+.faq-item:last-child { border-bottom: 1px solid var(--ink); }
 .faq-q {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-}
-.faq-q-left {
-  display: flex;
-  gap: 24px;
-  align-items: baseline;
-  flex: 1;
-}
-.faq-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--gold);
-  letter-spacing: 0.15em;
-  flex-shrink: 0;
-}
-.faq-q-text {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
   font-size: 22px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: var(--bone);
+  font-weight: 500;
   letter-spacing: -0.01em;
-  transition: color .3s;
+  line-height: 1.4;
 }
-.faq-toggle {
-  font-family: 'Cormorant Garamond', serif;
+.faq-q .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 400;
+  margin-right: 24px;
+  letter-spacing: 0.05em;
+}
+.faq-q .toggle {
+  font-family: 'Fraunces', serif;
   font-size: 32px;
   font-weight: 300;
-  color: var(--gold);
-  transition: transform .4s;
-  flex-shrink: 0;
+  color: var(--ink);
+  transition: transform .3s;
 }
-.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-item.open .toggle { transform: rotate(45deg); }
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .5s ease, padding .5s ease;
-  font-family: 'Noto Serif TC', serif;
+  transition: max-height .4s ease, padding .4s ease;
   font-size: 15px;
-  line-height: 1.95;
-  color: var(--soft);
-  padding-left: 56px;
-  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink);
+  padding-left: 48px;
 }
 .faq-item.open .faq-a {
   max-height: 600px;
-  padding-top: 24px;
+  padding-top: 20px;
 }
-.faq-a strong { color: var(--gold-bright); font-weight: 500; }
-.faq-a ul { margin-top: 14px; padding-left: 20px; list-style: none; }
-.faq-a li {
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 20px;
-}
-.faq-a li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
+.faq-a strong { font-weight: 700; color: var(--accent); }
+.faq-a ul { margin-top: 12px; padding-left: 20px; }
+.faq-a li { margin-bottom: 8px; }
 
 /* ========== FINAL CTA ========== */
 .final-cta {
-  padding: 180px 48px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 140px 32px;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  background: var(--void);
-  text-align: center;
+  border-bottom: none;
 }
 .final-cta::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center top, rgba(201,168,118,0.18), transparent 50%),
-    radial-gradient(ellipse at center bottom, rgba(184,115,51,0.12), transparent 50%);
+    radial-gradient(ellipse at top, rgba(200,73,44,0.15), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(176,136,80,0.1), transparent 60%);
   pointer-events: none;
 }
-.final-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,118,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,118,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  pointer-events: none;
-}
-
 .final-cta .container { position: relative; z-index: 2; }
-
-.final-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 40px;
-}
-.final-tag::before,
-.final-tag::after {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--gold);
-}
-
-.final-cta h2 {
-  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
-  font-weight: 300;
-  font-size: clamp(48px, 8vw, 120px);
-  line-height: 1;
-  letter-spacing: -0.025em;
-  color: var(--bone);
-  margin-bottom: 48px;
-}
-.final-cta h2 em {
-  font-style: italic;
-  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 400;
-}
-
-.quota-row {
-  display: inline-flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-.quota-row span {
+.final-cta .tag {
+  display: inline-block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
-  padding: 10px 20px;
-  border: 1px solid var(--gold);
+  color: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
+  padding: 6px 14px;
   border-radius: 100px;
+  margin-bottom: 32px;
 }
-
-.final-cta .lede {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 17px;
-  line-height: 1.9;
-  color: var(--soft);
+.final-cta h2 {
+  font-family: 'Fraunces', 'Noto Serif TC', serif;
   font-weight: 300;
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  color: var(--paper);
+}
+.final-cta h2 em { font-style: italic; color: var(--accent-soft); font-weight: 500; }
+
+.final-cta .quota {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 32px;
+}
+.final-cta .quota span { padding: 8px 16px; border: 1px solid var(--accent-soft); border-radius: 100px; }
+
+.final-cta p {
+  font-size: 17px;
+  line-height: 1.85;
   max-width: 620px;
-  margin: 0 auto 60px;
+  margin: 0 auto 48px;
+  color: var(--paper-dark);
 }
 
-.btn-final {
+.final-cta .btn-final {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-  color: var(--void);
-  padding: 26px 56px;
+  gap: 14px;
+  background: var(--accent);
+  color: var(--paper);
+  padding: 22px 44px;
   font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 17px;
   letter-spacing: 0.05em;
   border-radius: 100px;
   text-decoration: none;
-  transition: all .4s;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 12px 48px rgba(201,168,118,0.3);
+  transition: all .3s;
+  border: 1px solid var(--accent);
 }
-.btn-final::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-  transition: left 1s;
+.final-cta .btn-final:hover {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+  transform: translateY(-3px);
 }
-.btn-final:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 64px rgba(201,168,118,0.5);
-}
-.btn-final:hover::before { left: 100%; }
+.final-cta .btn-final svg { width: 20px; height: 20px; }
 
 /* ========== FOOTER ========== */
 footer {
-  background: var(--void);
-  border-top: 1px solid var(--line);
-  padding: 48px;
+  background: var(--ink);
+  color: var(--paper-dark);
+  padding: 40px 32px;
+  border-top: 1px solid #3a342a;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--muted);
+  letter-spacing: 0.1em;
 }
 .footer-grid {
-  max-width: 1320px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
-  align-items: center;
+  max-width: 1320px;
+  margin: 0 auto;
 }
-footer .brand-foot {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  color: var(--bone);
-  font-weight: 400;
-}
-footer .brand-foot em { font-style: italic; color: var(--gold); }
-footer a { color: var(--gold); text-decoration: none; transition: color .3s; }
-footer a:hover { color: var(--bone); }
+footer a { color: var(--accent-soft); text-decoration: none; }
+footer a:hover { color: var(--paper); }
 
-/* ========== LINE FLOAT ========== */
+/* ========== LINE FLOATING BUTTON ========== */
 .line-float {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
+  bottom: 28px;
+  right: 28px;
   z-index: 90;
   background: #06c755;
   color: white;
-  padding: 18px 28px;
+  padding: 16px 24px;
   border-radius: 100px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
   font-size: 14px;
-  box-shadow: 0 12px 40px rgba(6,199,85,0.4);
-  transition: all .4s;
-  animation: glow 2.5s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  transition: all .3s;
+  animation: pulse 2.4s ease-in-out infinite;
 }
 .line-float:hover {
-  transform: scale(1.08);
+  transform: scale(1.06);
   background: #05a546;
 }
-@keyframes glow {
-  0%, 100% { box-shadow: 0 12px 40px rgba(6,199,85,0.4), 0 0 0 0 rgba(6,199,85,0.6); }
-  50% { box-shadow: 0 12px 40px rgba(6,199,85,0.4), 0 0 0 16px rgba(6,199,85,0); }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 0 0 0 rgba(6,199,85,0.5); }
+  50% { box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 0 0 14px rgba(6,199,85,0); }
 }
 
-/* ========== REVEAL ========== */
+/* ========== REVEAL ANIMATIONS ========== */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 .reveal.in {
   opacity: 1;
@@ -1077,92 +798,105 @@ footer a:hover { color: var(--bone); }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
-  .navbar { padding: 16px 20px; }
-  .navbar.scrolled { padding: 12px 20px; }
-  .nav-links { gap: 14px; font-size: 10px; }
-  .nav-links a:not(.nav-cta) { display: none; }
-  .nav-links .nav-cta { display: inline-block; }
-  .hero { padding: 100px 20px 80px; min-height: auto; }
-  .hero-row { grid-template-columns: 1fr; gap: 40px; }
-  .scroll-hint { display: none; }
-  section { padding: 80px 20px; }
-  .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-  .intro-headline { position: static; }
-  .problem-row { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
-  .problem-row:hover { padding-left: 0; padding-right: 0; }
-  .prob-num { font-size: 64px; }
-  .solutions-grid { grid-template-columns: 1fr; }
-  .process-step { grid-template-columns: 1fr; gap: 24px; padding: 50px 0; }
-  .step-marker { position: static; display: flex; align-items: center; gap: 20px; }
-  .step-big-num { font-size: 72px; }
-  .step-body h3 { font-size: 30px; }
-  .cases-grid { grid-template-columns: 1fr; gap: 16px; }
-  .case-card { aspect-ratio: 4/3; }
-  .adv-grid { grid-template-columns: 1fr; }
-  .final-cta { padding: 100px 20px; }
-  .quota-row { flex-direction: column; align-items: center; gap: 10px; }
-  .line-float { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 13px; }
-  .faq-q-text { font-size: 17px; }
-  .faq-a { padding-left: 0; }
-  .btn-final { padding: 20px 36px; font-size: 15px; }
+  .topbar { padding: 12px 20px; font-size: 10px; gap: 12px; }
+  .topbar .left { gap: 16px; }
+  .topbar .left .issue { display: none; }
+  .hero { padding: 100px 20px 60px; min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  section { padding: 70px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .problem-item { grid-template-columns: 60px 1fr; gap: 20px; }
+  .problem-number { font-size: 56px; }
+  .problem-text { grid-column: 1 / -1; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .solution-card { border-right: none !important; border-bottom: 1px solid var(--ink) !important; }
+  .solution-card:last-child { border-bottom: none !important; }
+  .process-step { grid-template-columns: 1fr; gap: 16px; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .case-card { border-right: none; border-bottom: 1px solid var(--ink); min-height: 280px; }
+  .case-card:last-child { border-bottom: none; }
+  .advantages-grid { grid-template-columns: 1fr; }
+  .final-cta { padding: 80px 20px; }
+  .final-cta .quota { flex-direction: column; align-items: center; gap: 12px; }
+  .line-float { bottom: 16px; right: 16px; padding: 12px 18px; font-size: 13px; }
+  .marquee-track { font-size: 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <a href="#" class="brand">挪亞資訊科技 <em>有限公司</em></a>
-  <div class="nav-links">
-    <a href="#about">關於</a>
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="left">
+    <a href="#"><strong>挪亞資訊科技有限公司</strong></a>
+    <span class="issue">VOL. 12 — 參展型錄專輯</span>
+  </div>
+  <div class="right">
     <a href="#cases">作品</a>
     <a href="#process">流程</a>
     <a href="#faq">FAQ</a>
-    <a href="https://lin.ee/iS6ESzL" class="nav-cta">加入 LINE</a>
+    <a href="https://lin.ee/iS6ESzL" class="cta-mini">加 LINE</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow reveal">EXHIBITION CATALOG · 參展型錄專業設計 · EST. 2014</div>
-
-    <h1 class="hero-title reveal">
-      讓型錄,<br>
-      <span class="line2">替你 <em>說話</em>。</span>
-    </h1>
-
-    <div class="hero-row">
-      <p class="hero-deck reveal">
-        參展現場,你的型錄只有 <strong>3 秒鐘</strong>吸引目光的機會。我們專注做一件事——讓中小企業在展場上,被看見、被理解、被選擇。<strong>10 年品牌設計經驗</strong>,協助超過上百家企業打造會說話的型錄。
+  <div class="hero-grid container">
+    <div>
+      <div class="hero-meta">
+        <span>2025 Edition</span>
+        <span>專為中小企業</span>
+        <span>10 年實戰經驗</span>
+      </div>
+      <h1 class="hero-title">
+        讓型錄,<br>
+        替你<em>說話</em>。<br>
+        <span class="stroke">不只是印刷品。</span>
+      </h1>
+    </div>
+    <div>
+      <p class="hero-deck">
+        參展現場,你的型錄只有 3 秒鐘吸引目光的機會。我們專注做一件事——讓中小企業在展場上,被看見、被理解、被選擇。10 年品牌設計經驗,協助超過上百家企業打造會說話的型錄。
       </p>
-      <div class="hero-cta-stack reveal">
-        <a href="https://lin.ee/iS6ESzL" class="btn-gold">
+      <div class="hero-cta-row">
+        <a href="https://lin.ee/iS6ESzL" class="btn-primary">
           加入 LINE 免費諮詢
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
         </a>
-        <a href="#cases" class="btn-line-ghost">先看作品集 →</a>
+        <a href="#cases" class="btn-ghost">先看作品集 ↓</a>
       </div>
     </div>
   </div>
-  <div class="scroll-hint">SCROLL</div>
 </section>
 
-<!-- INTRO -->
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>被看見 <em class="star">✦</em></span>
+    <span>被翻完 <em class="star">✦</em></span>
+    <span>被記住 <em class="star">✦</em></span>
+    <span>被分享 <em class="star">✦</em></span>
+    <span>被選擇 <em class="star">✦</em></span>
+    <span>被看見 <em class="star">✦</em></span>
+    <span>被翻完 <em class="star">✦</em></span>
+    <span>被記住 <em class="star">✦</em></span>
+    <span>被分享 <em class="star">✦</em></span>
+    <span>被選擇 <em class="star">✦</em></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 01 · 關於我們</div>
-    <div class="intro-grid">
-      <h2 class="intro-headline reveal">
-        你的<br>
-        <em>參展設計</em><br>
-        夥伴。
-      </h2>
-      <div class="intro-body reveal">
-        <p>我們是挪亞資訊,專注品牌視覺與商業設計的專業團隊。過去 <strong>10 年</strong>,我們協助超過百家中小企業打造專屬於他們的參展型錄與形象設計。不只是讓產品被看到,更讓品牌在短短幾秒內,留下深刻印象。</p>
-        <p>我們相信:一本好的型錄,不只是排版與印刷,而是你在展場上的<strong>「第一句自我介紹」</strong>,是你不用開口就能說服人的銷售利器。</p>
-        <p>所以,我們不只幫你設計一本型錄——我們會陪你<strong>釐清重點、理清訊息、整理產品亮點</strong>,讓你的品牌,在人潮湧動的展場裡,有機會被看見,也有機會被記住。</p>
+    <span class="section-tag reveal">/ 01 — 關於我們</span>
+    <div class="about-grid">
+      <div class="reveal">
+        <h2 class="about-headline">你的<br><em>參展設計</em><br>夥伴。</h2>
+      </div>
+      <div class="about-body reveal">
+        <p>我們是挪亞資訊,專注品牌視覺與商業設計的專業團隊。過去 10 年,我們協助超過百家中小企業打造專屬於他們的參展型錄與形象設計。不只是讓產品被看到,更讓品牌在短短幾秒內,留下深刻印象。</p>
+        <p>我們相信:一本好的型錄,不只是排版與印刷,而是你在展場上的「第一句自我介紹」,是你不用開口就能說服人的銷售利器。</p>
+        <p>所以,我們不只幫你設計一本型錄——我們會陪你釐清重點、理清訊息、整理產品亮點,讓你的品牌,在人潮湧動的展場裡,有機會被看見,也有機會被記住。</p>
       </div>
     </div>
   </div>
@@ -1171,57 +905,55 @@ footer a:hover { color: var(--bone); }
 <!-- PROBLEMS -->
 <section class="problems-section">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 02 · 你是否也卡在這裡</div>
+    <span class="section-tag reveal">/ 02 — 你是否也卡在這裡</span>
     <h2 class="section-title reveal">準備參展時,<br>感覺<em>資訊太多、資源太少</em>。</h2>
     <p class="section-lede reveal">這份參展型錄,也許就是你卡住的關鍵——大多數中小企業老闆都遇過這三個問題。</p>
 
-    <div class="problems-stack">
-      <div class="problem-row reveal">
-        <div class="prob-num">i.</div>
-        <h3 class="prob-title">你努力做產品,<br>卻沒人一眼看懂你的專業</h3>
-        <p class="prob-text">參展現場人潮眾多,你的型錄只有 3 秒鐘吸引目光的機會,但你現在的型錄,可能只是把「產品規格堆滿版面」,卻沒說出「品牌故事」。<br><br>你試過自己排、請美編幫忙弄、甚至用印刷廠附的模板,結果就是:資訊有了,視覺卻零碎、焦點不清,<strong>不但沒吸引到買主,反而被歸類為「又一家沒特色的公司」</strong>。</p>
+    <div class="problem-list">
+      <div class="problem-item reveal">
+        <div class="problem-number">01</div>
+        <h3 class="problem-heading">你努力做產品,卻沒人一眼看懂你的專業</h3>
+        <p class="problem-text">參展現場人潮眾多,你的型錄只有 3 秒鐘吸引目光的機會,但你現在的型錄,可能只是把「產品規格堆滿版面」,卻沒說出「品牌故事」。<br><br>你試過自己排、請美編幫忙弄、甚至用印刷廠附的模板,結果就是:資訊有了,視覺卻零碎、焦點不清,<strong>不但沒吸引到買主,反而被歸類為「又一家沒特色的公司」</strong>。</p>
       </div>
-
-      <div class="problem-row reveal">
-        <div class="prob-num">ii.</div>
-        <h3 class="prob-title">你想升級品牌形象,<br>但沒有方向可依</h3>
-        <p class="prob-text">你知道現在競爭激烈,品牌門面很重要,但每次看到其他公司有設計、有系統、有風格,反觀自己,型錄卻像作業,沒有記憶點。<br><br>你懷疑是不是排版不夠、圖片不好、文案太硬?其實問題常常不是做得不夠多,而是根本沒從「參展策略」開始想。<strong>你缺的不是設計,而是一份真正能替你溝通與成交的型錄邏輯</strong>。</p>
+      <div class="problem-item reveal">
+        <div class="problem-number">02</div>
+        <h3 class="problem-heading">你想升級品牌形象,但沒有方向可依</h3>
+        <p class="problem-text">你知道現在競爭激烈,品牌門面很重要,但每次看到其他公司有設計、有系統、有風格,反觀自己,型錄卻像作業,沒有記憶點。<br><br>你懷疑是不是排版不夠、圖片不好、文案太硬?其實問題常常不是做得不夠多,而是根本沒從「參展策略」開始想。<strong>你缺的不是設計,而是一份真正能替你溝通與成交的型錄邏輯</strong>。</p>
       </div>
-
-      <div class="problem-row reveal">
-        <div class="prob-num">iii.</div>
-        <h3 class="prob-title">你知道該重新做型錄,<br>但怕白花錢</h3>
-        <p class="prob-text">你可能已經參展過幾次,經驗不少,但每次做型錄總是臨時抱佛腳、品質參差不齊,最後交出去的成果自己也不滿意。<br><br>你不是沒預算,也不是不願意投入,只是怕再一次做出「沒人記得的東西」。<strong>你想找的,是一個懂參展節奏、懂品牌邏輯、也懂中小企業預算現實的設計夥伴</strong>。</p>
+      <div class="problem-item reveal">
+        <div class="problem-number">03</div>
+        <h3 class="problem-heading">你知道該重新做型錄,但怕白花錢</h3>
+        <p class="problem-text">你可能已經參展過幾次,經驗不少,但每次做型錄總是臨時抱佛腳、品質參差不齊,最後交出去的成果自己也不滿意。<br><br>你不是沒預算,也不是不願意投入,只是怕再一次做出「沒人記得的東西」。<strong>你想找的,是一個懂參展節奏、懂品牌邏輯、也懂中小企業預算現實的設計夥伴</strong>。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SOLUTIONS -->
-<section>
+<section id="solutions">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 03 · 我們怎麼做</div>
+    <span class="section-tag reveal">/ 03 — 我們怎麼做</span>
     <h2 class="section-title reveal">為中小企業參展<br><em>量身設計</em>的型錄。</h2>
     <p class="section-lede reveal">讓你的型錄不只是產品列表,而是品牌價值的現場名片。</p>
 
-    <div class="solutions-grid">
-      <div class="solution-card reveal">
-        <span class="solution-mark">/ APPROACH 01</span>
+    <div class="solution-grid reveal">
+      <div class="solution-card">
+        <div class="solution-icon">a</div>
         <h3>差異化設計,從展場跳出來</h3>
         <p>型錄不是印刷資料,而是你在現場的「第一印象代表」。我們不做套版設計,而是從你的<strong>品牌調性、產品結構與目標客群</strong>出發,量身打造內容邏輯、視覺風格與使用情境,讓買主一翻就懂、一看就記住。</p>
       </div>
-      <div class="solution-card reveal">
-        <span class="solution-mark">/ APPROACH 02</span>
+      <div class="solution-card">
+        <div class="solution-icon">b</div>
         <h3>讓型錄成為「信任感」的起點</h3>
         <p>參展不只是曝光,而是爭取合作的開始。我們協助你<strong>釐清產品優勢、梳理服務價值、呈現品牌差異</strong>,讓一本型錄不只是宣傳品,而是幫助業務開場、幫助客戶理解、幫助成交的關鍵工具。</p>
       </div>
-      <div class="solution-card reveal">
-        <span class="solution-mark">/ APPROACH 03</span>
+      <div class="solution-card">
+        <div class="solution-icon">c</div>
         <h3>有溫度的型錄,才會被翻完</h3>
         <p>大多數型錄都停留在「堆資訊」,我們關心的是:這本型錄能不能<strong>說一段吸引人的故事</strong>?每一張圖、每段文案、每頁排版,都設計得更有節奏、更有引導力,讓人想看下去、看懂重點、留下好感。</p>
       </div>
-      <div class="solution-card reveal">
-        <span class="solution-mark">/ APPROACH 04</span>
+      <div class="solution-card">
+        <div class="solution-icon">d</div>
         <h3>設計是門面,策略才是關鍵</h3>
         <p>一本型錄該有明確的結構、銷售節奏、品牌語氣,同時還得考量:<strong>放在哪裡發?給誰看?什麼場景用?</strong>我們從這些核心開始設計,讓你不再只是「印好看」,而是真正做到「被看見、被理解、被選擇」。</p>
       </div>
@@ -1232,62 +964,59 @@ footer a:hover { color: var(--bone); }
 <!-- PROCESS -->
 <section id="process" class="process-section">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 04 · 合作三步驟</div>
+    <span class="section-tag reveal">/ 04 — 合作三步驟</span>
     <h2 class="section-title reveal">從靈魂理解,<br>到<em>實體交付</em>。</h2>
     <p class="section-lede reveal">建立有風格、有說服力、有記憶點的品牌展示工具——這是我們的完整流程。</p>
 
-    <div class="process-steps">
+    <div class="process-list">
       <div class="process-step reveal">
-        <div class="step-marker">
-          <div class="step-num">STEP / ONE</div>
-          <div class="step-big-num">01</div>
+        <div class="process-num">STEP 01</div>
+        <div>
+          <h3 class="process-headline">品牌探索 ×<br><em>內容盤點</em></h3>
         </div>
-        <div class="step-body">
-          <h3>品牌探索 ×<br><em>內容盤點</em></h3>
-          <p>一本型錄不該只是產品圖鑑,而是你在展場上「不用開口也能說服人」的工具。我們會從品牌與產品特性出發,搭配品牌問卷 + 一對一訪談,協助你釐清核心問題:</p>
-          <ul class="step-list">
+        <div class="process-content">
+          <p>一本型錄不該只是產品圖鑑,而是你在展場上「不用開口也能說服人」的工具。我們會從品牌與產品特性出發,搭配品牌問卷 + 一對一訪談,協助你釐清:</p>
+          <ul>
             <li>這次參展的目標是什麼?</li>
             <li>型錄要說服誰?要傳達哪些重點?</li>
             <li>產品如何分類呈現?品牌語氣該怎麼說?</li>
           </ul>
-          <p style="margin-top: 24px;">這不只是前期資料收集,而是一場深入討論:<strong>你想讓對的人怎麼看見你?</strong></p>
+          <p style="margin-top: 16px;">這不只是前期資料收集,而是一場深入討論:你想讓對的人怎麼看見你?</p>
         </div>
       </div>
 
       <div class="process-step reveal">
-        <div class="step-marker">
-          <div class="step-num">STEP / TWO</div>
-          <div class="step-big-num">02</div>
+        <div class="process-num">STEP 02</div>
+        <div>
+          <h3 class="process-headline">架構規劃 ×<br><em>設計定位</em></h3>
         </div>
-        <div class="step-body">
-          <h3>架構規劃 ×<br><em>設計定位</em></h3>
+        <div class="process-content">
           <p>釐清方向後,我們會依據你產品特性與受眾輪廓,進行型錄的頁面架構、視覺節奏與閱讀路徑設計。我們特別重視:</p>
-          <ul class="step-list">
+          <ul>
             <li>翻開型錄 3 秒內,馬上看懂你在做什麼</li>
             <li>用標題與版面引導讀者快速抓住重點</li>
             <li>設計兼具品牌識別感與現場實用性</li>
             <li>結合展場佈置、攤位風格整體一致</li>
           </ul>
-          <p style="margin-top: 24px;">這一步,是設計也是策略,讓你的型錄不只是<strong>「有印象」</strong>,而是<strong>「有效果」</strong>。</p>
+          <p style="margin-top: 16px;">這一步,是設計也是策略,讓你的型錄不只是「有印象」,而是「有效果」。</p>
         </div>
       </div>
 
       <div class="process-step reveal">
-        <div class="step-marker">
-          <div class="step-num">STEP / THREE</div>
-          <div class="step-big-num">03</div>
+        <div class="process-num">STEP 03</div>
+        <div>
+          <h3 class="process-headline">視覺設計 ×<br><em>印刷落地</em></h3>
         </div>
-        <div class="step-body">
-          <h3>視覺設計 ×<br><em>印刷落地</em></h3>
-          <p>完成規劃後,設計團隊進行完整型錄視覺製作,並依不同需求製作電子版本、印刷版本或精裝樣書。交付內容包含:</p>
-          <ul class="step-list">
+        <div class="process-content">
+          <p>完成規劃後,設計團隊進行完整型錄視覺製作,並依不同需求製作電子版本、印刷版本或精裝樣書。交付內容可能包含:</p>
+          <ul>
             <li>客製封面設計與頁面排版(含中英對照版式)</li>
             <li>攝影圖片處理、圖示設計與資訊整理</li>
             <li>PDF 電子型錄 / 線上閱讀連結版本</li>
             <li>協助印刷打樣、紙材建議與成品交付</li>
             <li>延伸應用:X 展架、簡報、名片等</li>
           </ul>
-          <p style="margin-top: 24px;">設計 + 內容 + 製作 + 印刷,一次搞定。<strong>型錄交給我們,全力讓它幫你說話</strong>。</p>
+          <p style="margin-top: 16px;">設計 + 內容 + 製作 + 印刷,一次搞定。型錄交給我們,全力讓它幫你說話。</p>
         </div>
       </div>
     </div>
@@ -1295,49 +1024,43 @@ footer a:hover { color: var(--bone); }
 </section>
 
 <!-- CASES -->
-<section id="cases" class="cases-section">
+<section id="cases">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 05 · 作品案例</div>
+    <span class="section-tag reveal">/ 05 — 作品案例</span>
     <h2 class="section-title reveal">用設計替品牌說話,<br>用型錄為<em>成交加分</em>。</h2>
     <p class="section-lede reveal">從製造業、農業科技、醫療設備到生活風格品牌,我們協助各行各業中小企業打造專屬參展型錄。每一本型錄,都是一場品牌價值的視覺溝通。</p>
 
-    <div class="cases-grid">
-      <a href="https://www.chingchiuansp.com/zh/" target="_blank" class="case-card reveal">
-        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_unik_03.jpg');"></div>
-        <div class="case-info">
-          <div class="case-info-left">
-            <div class="case-tag">Case · 01 · 工業</div>
-            <div class="case-name">已久工業<br>股份有限公司</div>
-          </div>
+    <div class="cases-grid reveal">
+      <a href="https://www.chingchiuansp.com/zh/" target="_blank" class="case-card">
+        <div class="case-image" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_unik_03.jpg');"></div>
+        <div class="case-text-area">
+          <div class="case-meta">CASE 01 — 工業</div>
           <div class="case-arrow">↗</div>
+          <div class="case-name">已久工業<br>股份有限公司</div>
         </div>
       </a>
-      <a href="https://www.cjf.com.tw/" target="_blank" class="case-card reveal">
-        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_bothwell_06.jpg');"></div>
-        <div class="case-info">
-          <div class="case-info-left">
-            <div class="case-tag">Case · 02 · 鐵工</div>
-            <div class="case-name">柏緯鐵工<br>股份有限公司</div>
-          </div>
+      <a href="https://www.cjf.com.tw/" target="_blank" class="case-card">
+        <div class="case-image" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_bothwell_06.jpg');"></div>
+        <div class="case-text-area">
+          <div class="case-meta">CASE 02 — 鐵工</div>
           <div class="case-arrow">↗</div>
+          <div class="case-name">柏緯鐵工<br>股份有限公司</div>
         </div>
       </a>
-      <a href="https://kddesign0219.com/" target="_blank" class="case-card reveal">
-        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2025/02/9425582_540_0-min.webp');"></div>
-        <div class="case-info">
-          <div class="case-info-left">
-            <div class="case-tag">Case · 03 · 機械</div>
-            <div class="case-name">瑋祥機械<br>股份有限公司</div>
-          </div>
+      <a href="https://kddesign0219.com/" target="_blank" class="case-card">
+        <div class="case-image" style="background-image: url('https://noyainc.com/wp-content/uploads/2025/02/9425582_540_0-min.webp');"></div>
+        <div class="case-text-area">
+          <div class="case-meta">CASE 03 — 機械</div>
           <div class="case-arrow">↗</div>
+          <div class="case-name">瑋祥機械<br>股份有限公司</div>
         </div>
       </a>
     </div>
 
-    <div class="cases-cta reveal">
-      <a href="https://lin.ee/iS6ESzL" class="btn-gold">
+    <div style="text-align: center; margin-top: 60px;" class="reveal">
+      <a href="https://lin.ee/iS6ESzL" class="btn-primary">
         加入 LINE 看完整作品集
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -1346,24 +1069,24 @@ footer a:hover { color: var(--bone); }
 <!-- ADVANTAGES -->
 <section class="advantages-section">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 06 · 為什麼選我們</div>
+    <span class="section-tag reveal">/ 06 — 為什麼選我們</span>
     <h2 class="section-title reveal">三大<em>合作優勢</em>。</h2>
     <p class="section-lede reveal">這就是為什麼中小企業願意把品牌第一印象交給我們。</p>
 
-    <div class="adv-grid">
-      <div class="adv-card reveal">
-        <div class="adv-roman">i.</div>
-        <h3>免費品牌訪談<br>+ 內容盤點</h3>
+    <div class="advantages-grid">
+      <div class="advantage-card reveal">
+        <div class="advantage-num">i.</div>
+        <h3>免費品牌訪談 + 內容盤點</h3>
         <p>合作前,我們安排一次<strong>一對一的深度訪談</strong>,陪你釐清:這本型錄該說什麼、給誰看、要達成什麼目標。<br><br>合作是否展開,在雙方達成共識後再決定。我們在乎的是「做對的事」,而不是強推成交。</p>
       </div>
-      <div class="adv-card reveal">
-        <div class="adv-roman">ii.</div>
-        <h3>實戰經驗豐富<br>作品真實落地</h3>
+      <div class="advantage-card reveal">
+        <div class="advantage-num">ii.</div>
+        <h3>實戰經驗豐富,作品真實落地</h3>
         <p>從製造業、農業科技、五金零件、醫療設備到生活品牌,我們協助過各類型中小企業設計參展型錄、摺頁與產品書。<br><br>不只是把資料排一排,而是<strong>從內容邏輯、品牌語氣到視覺風格,一套一套幫你做出會說話的型錄</strong>。</p>
       </div>
-      <div class="adv-card reveal">
-        <div class="adv-roman">iii.</div>
-        <h3>專注參展型錄<br>與品牌設計</h3>
+      <div class="advantage-card reveal">
+        <div class="advantage-num">iii.</div>
+        <h3>專注參展型錄與品牌設計</h3>
         <p>我們不做行銷萬用包、不接雜項外包,只專注一件事:<strong>讓品牌,在第一印象中被看見</strong>。<br><br>從內容結構、視覺風格、印刷規格到使用情境,我們把設計當作一種策略,幫你轉化為現場的說服力。</p>
       </div>
     </div>
@@ -1371,86 +1094,38 @@ footer a:hover { color: var(--bone); }
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="faq-section">
+<section id="faq">
   <div class="container">
-    <div class="section-eyebrow reveal">CHAPTER · 07 · 常見問題</div>
+    <span class="section-tag reveal">/ 07 — 常見問題</span>
     <h2 class="section-title reveal">關於合作,<br>你想知道的<em>都在這裡</em>。</h2>
 
     <div class="faq-list">
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">01</span>
-            <span class="faq-q-text">初次諮詢會收費嗎?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">01.</span>初次諮詢會收費嗎?</span><span class="toggle">+</span></div>
         <div class="faq-a">不會!我們提供<strong>免費的品牌風格問卷 + 一次電話訪談</strong>,協助你釐清型錄該呈現哪些資訊、給誰看、要達成什麼效果。雙方理念契合、方向明確後才會進入正式報價與合作流程。我們相信設計應該建立在理解與信任上。</div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">02</span>
-            <span class="faq-q-text">我不知道型錄要長什麼樣,可以合作嗎?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">02.</span>我不知道型錄要長什麼樣,可以合作嗎?</span><span class="toggle">+</span></div>
         <div class="faq-a">當然可以,這正是我們的專長!很多客戶找我們時,手上只有產品照片或幾份技術資料,我們會透過問卷與深度訪談,協助你釐清內容架構與呈現方式。<strong>你只需要了解你的產品與市場,設計交給我們來規劃</strong>。</div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">03</span>
-            <span class="faq-q-text">不喜歡第一版風格,可以修改嗎?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">03.</span>不喜歡第一版風格,可以修改嗎?</span><span class="toggle">+</span></div>
         <div class="faq-a">我們提供<strong>兩次免費風格與排版調整機會</strong>,確保你對內容滿意。如果超出調整次數,也會事前評估工作量並清楚報價,不會額外亂收費。</div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">04</span>
-            <span class="faq-q-text">完整設計一本型錄需要多久?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">04.</span>完整設計一本型錄需要多久?</span><span class="toggle">+</span></div>
         <div class="faq-a">依照型錄頁數與內容完整度不同:<ul><li><strong>標準型錄設計</strong>(約 8 ~ 16 頁):10 ~ 15 個工作天</li><li><strong>多頁產品書或多語系版本</strong>:3 ~ 4 週不等</li><li><strong>急件需求</strong>可視排程酌收加急費用並協調處理</li></ul></div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">05</span>
-            <span class="faq-q-text">交付內容包含哪些?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">05.</span>交付內容包含哪些?</span><span class="toggle">+</span></div>
         <div class="faq-a">依不同專案類型與需求,交付內容可能包含:<ul><li>封面 + 內頁完整排版設計(中英版 / 產品分類整理)</li><li>圖片處理、圖示設計、關鍵文案撰寫</li><li>PDF 電子型錄 + 線上閱讀版(如 Flipbook)</li><li>印刷打樣協助、紙材建議與檔案輸出規範</li><li>摺頁、簡報、名片等配套物料延伸設計</li></ul></div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">06</span>
-            <span class="faq-q-text">型錄設計好之後可以修改內容嗎?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">06.</span>型錄設計好之後可以修改內容嗎?</span><span class="toggle">+</span></div>
         <div class="faq-a">我們會提供<strong>可編修版本的原始檔或指定格式(如 InDesign / PDF)</strong>,日後若有產品調整、新增資訊,只要不是大幅版面重做,就能進行小幅修改。我們也提供後續更新服務,協助你保持內容最新狀態。</div>
       </div>
-
       <div class="faq-item reveal" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          <div class="faq-q-left">
-            <span class="faq-num">07</span>
-            <span class="faq-q-text">除了型錄設計,還有其他相關服務嗎?</span>
-          </div>
-          <span class="faq-toggle">+</span>
-        </div>
+        <div class="faq-q"><span><span class="num">07.</span>除了型錄設計,還有其他相關服務嗎?</span><span class="toggle">+</span></div>
         <div class="faq-a">我們專注品牌視覺設計,也能提供以下配套服務(視排程安排):<ul><li>品牌識別設計(Logo、品牌手冊、商業名片)</li><li>攤位視覺整合設計(背板、海報、展架)</li><li>活動簡報模板設計(提案簡報、招商文件)</li><li>參展前行銷素材(社群 Banner、邀請函設計)</li></ul></div>
       </div>
     </div>
@@ -1460,15 +1135,15 @@ footer a:hover { color: var(--bone); }
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
-    <div class="final-tag reveal">FINAL CALL · 最後一步</div>
+    <span class="tag reveal">— FINAL CALL —</span>
     <h2 class="reveal">理解品牌靈魂,<br>為你打造一本<br><em>會說話的型錄</em>。</h2>
-    <div class="quota-row reveal">
+    <div class="quota reveal">
       <span>每月僅開放少量專案</span>
       <span>深度製作 / 品質優先</span>
     </div>
-    <p class="lede reveal">我們只與「願意認真對待品牌」的你合作。先了解你的展覽目標與品牌故事,確認方向與共識後再進入設計流程。不為數量,只為做好每一份能真正幫上忙的型錄。</p>
+    <p class="reveal">我們只與「願意認真對待品牌」的你合作。先了解你的展覽目標與品牌故事,確認方向與共識後再進入設計流程。不為數量,只為做好每一份能真正幫上忙的型錄。</p>
     <a href="https://lin.ee/iS6ESzL" class="btn-final reveal">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.365 9.863c.349 0 .63.285.631.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.631.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       加入 LINE 免費客製化諮詢
     </a>
   </div>
@@ -1477,26 +1152,18 @@ footer a:hover { color: var(--bone); }
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="brand-foot">NOYA <em>&</em> 挪亞設計</div>
-    <div>© 2025 挪亞資訊科技有限公司</div>
-    <div>TEL — 06-2525793 · <a href="https://noyainc.com/dm.pdf" target="_blank">電子型錄 PDF</a></div>
+    <div>© 2025 NOYA Inc. — 挪亞資訊科技有限公司</div>
+    <div>TEL — 06-2525793 / <a href="https://noyainc.com/dm.pdf" target="_blank">電子型錄 PDF</a></div>
   </div>
 </footer>
 
-<!-- LINE FLOAT -->
+<!-- FLOATING LINE BUTTON -->
 <a href="https://lin.ee/iS6ESzL" class="line-float">
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.365 9.863c.349 0 .63.285.631.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
   免費諮詢
 </a>
 
 <script>
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
-
 // Reveal on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
