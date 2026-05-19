@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>挪亞設計｜參展型錄印刷專業團隊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #0a0a0c;
+  --ink: #131316;
+  --shadow: #1d1d22;
+  --line: #2a2a30;
+  --bone: #f5f1e8;
+  --gold: #c9a876;
+  --gold-bright: #e8c688;
+  --copper: #b87333;
+  --muted: #6b6b75;
+  --soft: #9a9aa3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--bone);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Film grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 199;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+}
+
+.serif { font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; }
+.serif-tc { font-family: 'Noto Serif TC', serif; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(10,10,12,0.9), rgba(10,10,12,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all .4s;
+}
+.navbar.scrolled {
+  background: rgba(10,10,12,0.92);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 48px;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bone);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--soft);
+  text-decoration: none;
+  transition: color .3s;
+  position: relative;
+}
+.nav-links a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .3s;
+}
+.nav-links a:not(.nav-cta):hover { color: var(--bone); }
+.nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+.nav-cta {
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  padding: 10px 20px;
+  border-radius: 100px;
+  transition: all .3s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--void) !important;
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Hero background atmospheric */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,118,0.12), transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(184,115,51,0.08), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(232,198,136,0.06), transparent 60%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,118,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,118,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 300;
+  font-size: clamp(56px, 9vw, 144px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  margin-bottom: 40px;
+}
+.hero-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+.hero-title .line2 {
+  display: block;
+  text-align: right;
+  font-weight: 400;
+}
+.hero-title .stroke {
+  -webkit-text-stroke: 1px var(--gold);
+  color: transparent;
+}
+
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-top: 60px;
+}
+
+.hero-deck {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+  max-width: 480px;
+}
+.hero-deck strong {
+  color: var(--bone);
+  font-weight: 400;
+}
+
+.hero-cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--void);
+  padding: 20px 36px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  transition: all .4s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(201,168,118,0.25);
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left .8s;
+}
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(201,168,118,0.4);
+}
+.btn-gold:hover::before { left: 100%; }
+.btn-gold svg { width: 18px; height: 18px; }
+
+.btn-line-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--soft);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  transition: all .3s;
+}
+.btn-line-ghost:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 5;
+}
+.scroll-hint::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(0.4); transform-origin: top; }
+  50% { transform: scaleY(1); }
+}
+
+/* ========== SECTIONS BASE ========== */
+section { padding: 140px 48px; position: relative; }
+
+.container { max-width: 1320px; margin: 0 auto; }
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  margin-bottom: 28px;
+}
+.section-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+
+.section-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+  max-width: 620px;
+  margin-bottom: 80px;
+}
+
+/* ========== INTRO ========== */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: start;
+}
+.intro-headline {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  position: sticky;
+  top: 100px;
+}
+.intro-headline em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+.intro-body p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--soft);
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.intro-body p strong {
+  color: var(--bone);
+  font-weight: 400;
+}
+.intro-body p:first-child::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  font-weight: 400;
+  float: left;
+  line-height: 0.85;
+  margin: 10px 14px 0 0;
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ========== PROBLEMS ========== */
+.problems-section {
+  background: linear-gradient(180deg, var(--void), var(--ink));
+}
+
+.problems-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 40px;
+}
+.problem-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 1.4fr;
+  gap: 60px;
+  padding: 60px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+  transition: all .4s;
+}
+.problem-row:last-child { border-bottom: 1px solid var(--line); }
+.problem-row:hover { background: rgba(201,168,118,0.02); padding-left: 12px; padding-right: 12px; }
+
+.prob-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 0.9;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.prob-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+.prob-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+}
+.prob-text strong {
+  color: var(--gold-bright);
+  font-weight: 500;
+}
+
+/* ========== SOLUTIONS ========== */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.solution-card {
+  padding: 48px 40px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(29,29,34,0.6), rgba(19,19,22,0.4));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  transition: all .5s;
+}
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .5s;
+}
+.solution-card:hover {
+  border-color: rgba(201,168,118,0.3);
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, rgba(29,29,34,0.8), rgba(19,19,22,0.6));
+}
+.solution-card:hover::before { opacity: 1; }
+
+.solution-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: block;
+}
+.solution-card h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--bone);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.solution-card p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+}
+.solution-card p strong {
+  color: var(--gold-bright);
+  font-weight: 500;
+}
+
+/* ========== PROCESS ========== */
+.process-section {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.process-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,168,118,0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.process-steps {
+  margin-top: 40px;
+  position: relative;
+}
+.process-step {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 80px;
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+  position: relative;
+}
+.process-step:last-child { border-bottom: 1px solid var(--line); }
+
+.step-marker {
+  position: sticky;
+  top: 120px;
+}
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.step-big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 120px;
+  font-weight: 300;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.step-body h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--bone);
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+.step-body h3 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.step-body p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--soft);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.step-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.step-list li {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--soft);
+  padding-left: 28px;
+  position: relative;
+  font-weight: 300;
+}
+.step-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 12px;
+  width: 16px; height: 1px;
+  background: var(--gold);
+}
+
+/* ========== CASES ========== */
+.cases-section { background: var(--void); }
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.case-card {
+  position: relative;
+  text-decoration: none;
+  color: var(--bone);
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 0;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  transition: all .5s;
+  display: flex;
+  flex-direction: column;
+}
+.case-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+}
+.case-visual {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform .7s ease;
+}
+.case-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,12,0.1) 0%, rgba(10,10,12,0.05) 50%, rgba(10,10,12,0.5) 100%);
+  z-index: 1;
+  transition: background .5s;
+}
+.case-card:hover .case-visual {
+  transform: scale(1.06);
+}
+.case-card:hover .case-visual::before {
+  background: linear-gradient(180deg, rgba(201,168,118,0.1) 0%, rgba(10,10,12,0.05) 50%, rgba(10,10,12,0.4) 100%);
+}
+
+.case-info {
+  padding: 28px 28px;
+  border-top: 1px solid var(--line);
+  background: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+.case-info-left { flex: 1; }
+.case-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.case-name {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--bone);
+}
+.case-arrow {
+  font-size: 28px;
+  color: var(--gold);
+  transition: transform .3s;
+}
+.case-card:hover .case-arrow { transform: translate(4px, -4px); }
+
+.cases-cta {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* ========== ADVANTAGES ========== */
+.advantages-section {
+  background: linear-gradient(180deg, var(--ink), var(--void));
+}
+
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.adv-card {
+  padding: 56px 40px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(29,29,34,0.4), rgba(19,19,22,0.2));
+  position: relative;
+  overflow: hidden;
+  transition: all .5s;
+}
+.adv-card:hover {
+  border-color: rgba(201,168,118,0.4);
+  transform: translateY(-4px);
+}
+.adv-roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 24px;
+}
+.adv-card h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--bone);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.adv-card p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+}
+.adv-card p strong {
+  color: var(--gold-bright);
+  font-weight: 500;
+}
+
+/* ========== FAQ ========== */
+.faq-section { background: var(--void); }
+
+.faq-list {
+  max-width: 920px;
+  margin: 40px auto 0;
+}
+.faq-item {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  cursor: pointer;
+  transition: padding .3s;
+}
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-item:hover .faq-q-text { color: var(--gold); }
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.faq-q-left {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  flex: 1;
+}
+.faq-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  flex-shrink: 0;
+}
+.faq-q-text {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+  transition: color .3s;
+}
+.faq-toggle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform .4s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s ease, padding .5s ease;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--soft);
+  padding-left: 56px;
+  font-weight: 300;
+}
+.faq-item.open .faq-a {
+  max-height: 600px;
+  padding-top: 24px;
+}
+.faq-a strong { color: var(--gold-bright); font-weight: 500; }
+.faq-a ul { margin-top: 14px; padding-left: 20px; list-style: none; }
+.faq-a li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+.faq-a li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ========== FINAL CTA ========== */
+.final-cta {
+  padding: 180px 48px;
+  position: relative;
+  overflow: hidden;
+  background: var(--void);
+  text-align: center;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center top, rgba(201,168,118,0.18), transparent 50%),
+    radial-gradient(ellipse at center bottom, rgba(184,115,51,0.12), transparent 50%);
+  pointer-events: none;
+}
+.final-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,118,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,118,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  pointer-events: none;
+}
+
+.final-cta .container { position: relative; z-index: 2; }
+
+.final-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.final-tag::before,
+.final-tag::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.final-cta h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 300;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--bone);
+  margin-bottom: 48px;
+}
+.final-cta h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--copper));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+
+.quota-row {
+  display: inline-flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.quota-row span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 10px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+}
+
+.final-cta .lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--soft);
+  font-weight: 300;
+  max-width: 620px;
+  margin: 0 auto 60px;
+}
+
+.btn-final {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--void);
+  padding: 26px 56px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all .4s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(201,168,118,0.3);
+}
+.btn-final::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transition: left 1s;
+}
+.btn-final:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 64px rgba(201,168,118,0.5);
+}
+.btn-final:hover::before { left: 100%; }
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--void);
+  border-top: 1px solid var(--line);
+  padding: 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+.footer-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+footer .brand-foot {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: var(--bone);
+  font-weight: 400;
+}
+footer .brand-foot em { font-style: italic; color: var(--gold); }
+footer a { color: var(--gold); text-decoration: none; transition: color .3s; }
+footer a:hover { color: var(--bone); }
+
+/* ========== LINE FLOAT ========== */
+.line-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 90;
+  background: #06c755;
+  color: white;
+  padding: 18px 28px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 12px 40px rgba(6,199,85,0.4);
+  transition: all .4s;
+  animation: glow 2.5s ease-in-out infinite;
+}
+.line-float:hover {
+  transform: scale(1.08);
+  background: #05a546;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 12px 40px rgba(6,199,85,0.4), 0 0 0 0 rgba(6,199,85,0.6); }
+  50% { box-shadow: 0 12px 40px rgba(6,199,85,0.4), 0 0 0 16px rgba(6,199,85,0); }
+}
+
+/* ========== REVEAL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .navbar { padding: 16px 20px; }
+  .navbar.scrolled { padding: 12px 20px; }
+  .nav-links { gap: 14px; font-size: 10px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links .nav-cta { display: inline-block; }
+  .hero { padding: 100px 20px 80px; min-height: auto; }
+  .hero-row { grid-template-columns: 1fr; gap: 40px; }
+  .scroll-hint { display: none; }
+  section { padding: 80px 20px; }
+  .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+  .intro-headline { position: static; }
+  .problem-row { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .problem-row:hover { padding-left: 0; padding-right: 0; }
+  .prob-num { font-size: 64px; }
+  .solutions-grid { grid-template-columns: 1fr; }
+  .process-step { grid-template-columns: 1fr; gap: 24px; padding: 50px 0; }
+  .step-marker { position: static; display: flex; align-items: center; gap: 20px; }
+  .step-big-num { font-size: 72px; }
+  .step-body h3 { font-size: 30px; }
+  .cases-grid { grid-template-columns: 1fr; gap: 16px; }
+  .case-card { aspect-ratio: 4/3; }
+  .adv-grid { grid-template-columns: 1fr; }
+  .final-cta { padding: 100px 20px; }
+  .quota-row { flex-direction: column; align-items: center; gap: 10px; }
+  .line-float { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 13px; }
+  .faq-q-text { font-size: 17px; }
+  .faq-a { padding-left: 0; }
+  .btn-final { padding: 20px 36px; font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="brand">挪亞資訊科技 <em>有限公司</em></a>
+  <div class="nav-links">
+    <a href="#about">關於</a>
+    <a href="#cases">作品</a>
+    <a href="#process">流程</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://lin.ee/iS6ESzL" class="nav-cta">加入 LINE</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">EXHIBITION CATALOG · 參展型錄專業設計 · EST. 2014</div>
+
+    <h1 class="hero-title reveal">
+      讓型錄,<br>
+      <span class="line2">替你 <em>說話</em>。</span>
+    </h1>
+
+    <div class="hero-row">
+      <p class="hero-deck reveal">
+        參展現場,你的型錄只有 <strong>3 秒鐘</strong>吸引目光的機會。我們專注做一件事——讓中小企業在展場上,被看見、被理解、被選擇。<strong>10 年品牌設計經驗</strong>,協助超過上百家企業打造會說話的型錄。
+      </p>
+      <div class="hero-cta-stack reveal">
+        <a href="https://lin.ee/iS6ESzL" class="btn-gold">
+          加入 LINE 免費諮詢
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </a>
+        <a href="#cases" class="btn-line-ghost">先看作品集 →</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- INTRO -->
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 01 · 關於我們</div>
+    <div class="intro-grid">
+      <h2 class="intro-headline reveal">
+        你的<br>
+        <em>參展設計</em><br>
+        夥伴。
+      </h2>
+      <div class="intro-body reveal">
+        <p>我們是挪亞資訊,專注品牌視覺與商業設計的專業團隊。過去 <strong>10 年</strong>,我們協助超過百家中小企業打造專屬於他們的參展型錄與形象設計。不只是讓產品被看到,更讓品牌在短短幾秒內,留下深刻印象。</p>
+        <p>我們相信:一本好的型錄,不只是排版與印刷,而是你在展場上的<strong>「第一句自我介紹」</strong>,是你不用開口就能說服人的銷售利器。</p>
+        <p>所以,我們不只幫你設計一本型錄——我們會陪你<strong>釐清重點、理清訊息、整理產品亮點</strong>,讓你的品牌,在人潮湧動的展場裡,有機會被看見,也有機會被記住。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 02 · 你是否也卡在這裡</div>
+    <h2 class="section-title reveal">準備參展時,<br>感覺<em>資訊太多、資源太少</em>。</h2>
+    <p class="section-lede reveal">這份參展型錄,也許就是你卡住的關鍵——大多數中小企業老闆都遇過這三個問題。</p>
+
+    <div class="problems-stack">
+      <div class="problem-row reveal">
+        <div class="prob-num">i.</div>
+        <h3 class="prob-title">你努力做產品,<br>卻沒人一眼看懂你的專業</h3>
+        <p class="prob-text">參展現場人潮眾多,你的型錄只有 3 秒鐘吸引目光的機會,但你現在的型錄,可能只是把「產品規格堆滿版面」,卻沒說出「品牌故事」。<br><br>你試過自己排、請美編幫忙弄、甚至用印刷廠附的模板,結果就是:資訊有了,視覺卻零碎、焦點不清,<strong>不但沒吸引到買主,反而被歸類為「又一家沒特色的公司」</strong>。</p>
+      </div>
+
+      <div class="problem-row reveal">
+        <div class="prob-num">ii.</div>
+        <h3 class="prob-title">你想升級品牌形象,<br>但沒有方向可依</h3>
+        <p class="prob-text">你知道現在競爭激烈,品牌門面很重要,但每次看到其他公司有設計、有系統、有風格,反觀自己,型錄卻像作業,沒有記憶點。<br><br>你懷疑是不是排版不夠、圖片不好、文案太硬?其實問題常常不是做得不夠多,而是根本沒從「參展策略」開始想。<strong>你缺的不是設計,而是一份真正能替你溝通與成交的型錄邏輯</strong>。</p>
+      </div>
+
+      <div class="problem-row reveal">
+        <div class="prob-num">iii.</div>
+        <h3 class="prob-title">你知道該重新做型錄,<br>但怕白花錢</h3>
+        <p class="prob-text">你可能已經參展過幾次,經驗不少,但每次做型錄總是臨時抱佛腳、品質參差不齊,最後交出去的成果自己也不滿意。<br><br>你不是沒預算,也不是不願意投入,只是怕再一次做出「沒人記得的東西」。<strong>你想找的,是一個懂參展節奏、懂品牌邏輯、也懂中小企業預算現實的設計夥伴</strong>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 03 · 我們怎麼做</div>
+    <h2 class="section-title reveal">為中小企業參展<br><em>量身設計</em>的型錄。</h2>
+    <p class="section-lede reveal">讓你的型錄不只是產品列表,而是品牌價值的現場名片。</p>
+
+    <div class="solutions-grid">
+      <div class="solution-card reveal">
+        <span class="solution-mark">/ APPROACH 01</span>
+        <h3>差異化設計,從展場跳出來</h3>
+        <p>型錄不是印刷資料,而是你在現場的「第一印象代表」。我們不做套版設計,而是從你的<strong>品牌調性、產品結構與目標客群</strong>出發,量身打造內容邏輯、視覺風格與使用情境,讓買主一翻就懂、一看就記住。</p>
+      </div>
+      <div class="solution-card reveal">
+        <span class="solution-mark">/ APPROACH 02</span>
+        <h3>讓型錄成為「信任感」的起點</h3>
+        <p>參展不只是曝光,而是爭取合作的開始。我們協助你<strong>釐清產品優勢、梳理服務價值、呈現品牌差異</strong>,讓一本型錄不只是宣傳品,而是幫助業務開場、幫助客戶理解、幫助成交的關鍵工具。</p>
+      </div>
+      <div class="solution-card reveal">
+        <span class="solution-mark">/ APPROACH 03</span>
+        <h3>有溫度的型錄,才會被翻完</h3>
+        <p>大多數型錄都停留在「堆資訊」,我們關心的是:這本型錄能不能<strong>說一段吸引人的故事</strong>?每一張圖、每段文案、每頁排版,都設計得更有節奏、更有引導力,讓人想看下去、看懂重點、留下好感。</p>
+      </div>
+      <div class="solution-card reveal">
+        <span class="solution-mark">/ APPROACH 04</span>
+        <h3>設計是門面,策略才是關鍵</h3>
+        <p>一本型錄該有明確的結構、銷售節奏、品牌語氣,同時還得考量:<strong>放在哪裡發?給誰看?什麼場景用?</strong>我們從這些核心開始設計,讓你不再只是「印好看」,而是真正做到「被看見、被理解、被選擇」。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 04 · 合作三步驟</div>
+    <h2 class="section-title reveal">從靈魂理解,<br>到<em>實體交付</em>。</h2>
+    <p class="section-lede reveal">建立有風格、有說服力、有記憶點的品牌展示工具——這是我們的完整流程。</p>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-marker">
+          <div class="step-num">STEP / ONE</div>
+          <div class="step-big-num">01</div>
+        </div>
+        <div class="step-body">
+          <h3>品牌探索 ×<br><em>內容盤點</em></h3>
+          <p>一本型錄不該只是產品圖鑑,而是你在展場上「不用開口也能說服人」的工具。我們會從品牌與產品特性出發,搭配品牌問卷 + 一對一訪談,協助你釐清核心問題:</p>
+          <ul class="step-list">
+            <li>這次參展的目標是什麼?</li>
+            <li>型錄要說服誰?要傳達哪些重點?</li>
+            <li>產品如何分類呈現?品牌語氣該怎麼說?</li>
+          </ul>
+          <p style="margin-top: 24px;">這不只是前期資料收集,而是一場深入討論:<strong>你想讓對的人怎麼看見你?</strong></p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="step-marker">
+          <div class="step-num">STEP / TWO</div>
+          <div class="step-big-num">02</div>
+        </div>
+        <div class="step-body">
+          <h3>架構規劃 ×<br><em>設計定位</em></h3>
+          <p>釐清方向後,我們會依據你產品特性與受眾輪廓,進行型錄的頁面架構、視覺節奏與閱讀路徑設計。我們特別重視:</p>
+          <ul class="step-list">
+            <li>翻開型錄 3 秒內,馬上看懂你在做什麼</li>
+            <li>用標題與版面引導讀者快速抓住重點</li>
+            <li>設計兼具品牌識別感與現場實用性</li>
+            <li>結合展場佈置、攤位風格整體一致</li>
+          </ul>
+          <p style="margin-top: 24px;">這一步,是設計也是策略,讓你的型錄不只是<strong>「有印象」</strong>,而是<strong>「有效果」</strong>。</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="step-marker">
+          <div class="step-num">STEP / THREE</div>
+          <div class="step-big-num">03</div>
+        </div>
+        <div class="step-body">
+          <h3>視覺設計 ×<br><em>印刷落地</em></h3>
+          <p>完成規劃後,設計團隊進行完整型錄視覺製作,並依不同需求製作電子版本、印刷版本或精裝樣書。交付內容包含:</p>
+          <ul class="step-list">
+            <li>客製封面設計與頁面排版(含中英對照版式)</li>
+            <li>攝影圖片處理、圖示設計與資訊整理</li>
+            <li>PDF 電子型錄 / 線上閱讀連結版本</li>
+            <li>協助印刷打樣、紙材建議與成品交付</li>
+            <li>延伸應用:X 展架、簡報、名片等</li>
+          </ul>
+          <p style="margin-top: 24px;">設計 + 內容 + 製作 + 印刷,一次搞定。<strong>型錄交給我們,全力讓它幫你說話</strong>。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases" class="cases-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 05 · 作品案例</div>
+    <h2 class="section-title reveal">用設計替品牌說話,<br>用型錄為<em>成交加分</em>。</h2>
+    <p class="section-lede reveal">從製造業、農業科技、醫療設備到生活風格品牌,我們協助各行各業中小企業打造專屬參展型錄。每一本型錄,都是一場品牌價值的視覺溝通。</p>
+
+    <div class="cases-grid">
+      <a href="https://www.chingchiuansp.com/zh/" target="_blank" class="case-card reveal">
+        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_unik_03.jpg');"></div>
+        <div class="case-info">
+          <div class="case-info-left">
+            <div class="case-tag">Case · 01 · 工業</div>
+            <div class="case-name">已久工業<br>股份有限公司</div>
+          </div>
+          <div class="case-arrow">↗</div>
+        </div>
+      </a>
+      <a href="https://www.cjf.com.tw/" target="_blank" class="case-card reveal">
+        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2024/07/img_bothwell_06.jpg');"></div>
+        <div class="case-info">
+          <div class="case-info-left">
+            <div class="case-tag">Case · 02 · 鐵工</div>
+            <div class="case-name">柏緯鐵工<br>股份有限公司</div>
+          </div>
+          <div class="case-arrow">↗</div>
+        </div>
+      </a>
+      <a href="https://kddesign0219.com/" target="_blank" class="case-card reveal">
+        <div class="case-visual" style="background-image: url('https://noyainc.com/wp-content/uploads/2025/02/9425582_540_0-min.webp');"></div>
+        <div class="case-info">
+          <div class="case-info-left">
+            <div class="case-tag">Case · 03 · 機械</div>
+            <div class="case-name">瑋祥機械<br>股份有限公司</div>
+          </div>
+          <div class="case-arrow">↗</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="cases-cta reveal">
+      <a href="https://lin.ee/iS6ESzL" class="btn-gold">
+        加入 LINE 看完整作品集
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 06 · 為什麼選我們</div>
+    <h2 class="section-title reveal">三大<em>合作優勢</em>。</h2>
+    <p class="section-lede reveal">這就是為什麼中小企業願意把品牌第一印象交給我們。</p>
+
+    <div class="adv-grid">
+      <div class="adv-card reveal">
+        <div class="adv-roman">i.</div>
+        <h3>免費品牌訪談<br>+ 內容盤點</h3>
+        <p>合作前,我們安排一次<strong>一對一的深度訪談</strong>,陪你釐清:這本型錄該說什麼、給誰看、要達成什麼目標。<br><br>合作是否展開,在雙方達成共識後再決定。我們在乎的是「做對的事」,而不是強推成交。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-roman">ii.</div>
+        <h3>實戰經驗豐富<br>作品真實落地</h3>
+        <p>從製造業、農業科技、五金零件、醫療設備到生活品牌,我們協助過各類型中小企業設計參展型錄、摺頁與產品書。<br><br>不只是把資料排一排,而是<strong>從內容邏輯、品牌語氣到視覺風格,一套一套幫你做出會說話的型錄</strong>。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-roman">iii.</div>
+        <h3>專注參展型錄<br>與品牌設計</h3>
+        <p>我們不做行銷萬用包、不接雜項外包,只專注一件事:<strong>讓品牌,在第一印象中被看見</strong>。<br><br>從內容結構、視覺風格、印刷規格到使用情境,我們把設計當作一種策略,幫你轉化為現場的說服力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">CHAPTER · 07 · 常見問題</div>
+    <h2 class="section-title reveal">關於合作,<br>你想知道的<em>都在這裡</em>。</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">01</span>
+            <span class="faq-q-text">初次諮詢會收費嗎?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">不會!我們提供<strong>免費的品牌風格問卷 + 一次電話訪談</strong>,協助你釐清型錄該呈現哪些資訊、給誰看、要達成什麼效果。雙方理念契合、方向明確後才會進入正式報價與合作流程。我們相信設計應該建立在理解與信任上。</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">02</span>
+            <span class="faq-q-text">我不知道型錄要長什麼樣,可以合作嗎?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">當然可以,這正是我們的專長!很多客戶找我們時,手上只有產品照片或幾份技術資料,我們會透過問卷與深度訪談,協助你釐清內容架構與呈現方式。<strong>你只需要了解你的產品與市場,設計交給我們來規劃</strong>。</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">03</span>
+            <span class="faq-q-text">不喜歡第一版風格,可以修改嗎?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">我們提供<strong>兩次免費風格與排版調整機會</strong>,確保你對內容滿意。如果超出調整次數,也會事前評估工作量並清楚報價,不會額外亂收費。</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">04</span>
+            <span class="faq-q-text">完整設計一本型錄需要多久?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">依照型錄頁數與內容完整度不同:<ul><li><strong>標準型錄設計</strong>(約 8 ~ 16 頁):10 ~ 15 個工作天</li><li><strong>多頁產品書或多語系版本</strong>:3 ~ 4 週不等</li><li><strong>急件需求</strong>可視排程酌收加急費用並協調處理</li></ul></div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">05</span>
+            <span class="faq-q-text">交付內容包含哪些?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">依不同專案類型與需求,交付內容可能包含:<ul><li>封面 + 內頁完整排版設計(中英版 / 產品分類整理)</li><li>圖片處理、圖示設計、關鍵文案撰寫</li><li>PDF 電子型錄 + 線上閱讀版(如 Flipbook)</li><li>印刷打樣協助、紙材建議與檔案輸出規範</li><li>摺頁、簡報、名片等配套物料延伸設計</li></ul></div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">06</span>
+            <span class="faq-q-text">型錄設計好之後可以修改內容嗎?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">我們會提供<strong>可編修版本的原始檔或指定格式(如 InDesign / PDF)</strong>,日後若有產品調整、新增資訊,只要不是大幅版面重做,就能進行小幅修改。我們也提供後續更新服務,協助你保持內容最新狀態。</div>
+      </div>
+
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-q">
+          <div class="faq-q-left">
+            <span class="faq-num">07</span>
+            <span class="faq-q-text">除了型錄設計,還有其他相關服務嗎?</span>
+          </div>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">我們專注品牌視覺設計,也能提供以下配套服務(視排程安排):<ul><li>品牌識別設計(Logo、品牌手冊、商業名片)</li><li>攤位視覺整合設計(背板、海報、展架)</li><li>活動簡報模板設計(提案簡報、招商文件)</li><li>參展前行銷素材(社群 Banner、邀請函設計)</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-tag reveal">FINAL CALL · 最後一步</div>
+    <h2 class="reveal">理解品牌靈魂,<br>為你打造一本<br><em>會說話的型錄</em>。</h2>
+    <div class="quota-row reveal">
+      <span>每月僅開放少量專案</span>
+      <span>深度製作 / 品質優先</span>
+    </div>
+    <p class="lede reveal">我們只與「願意認真對待品牌」的你合作。先了解你的展覽目標與品牌故事,確認方向與共識後再進入設計流程。不為數量,只為做好每一份能真正幫上忙的型錄。</p>
+    <a href="https://lin.ee/iS6ESzL" class="btn-final reveal">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.365 9.863c.349 0 .63.285.631.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      加入 LINE 免費客製化諮詢
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="brand-foot">NOYA <em>&</em> 挪亞設計</div>
+    <div>© 2025 挪亞資訊科技有限公司</div>
+    <div>TEL — 06-2525793 · <a href="https://noyainc.com/dm.pdf" target="_blank">電子型錄 PDF</a></div>
+  </div>
+</footer>
+
+<!-- LINE FLOAT -->
+<a href="https://lin.ee/iS6ESzL" class="line-float">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.365 9.863c.349 0 .63.285.631.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  免費諮詢
+</a>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
